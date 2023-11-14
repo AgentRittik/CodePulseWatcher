@@ -2,6 +2,12 @@
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that Code Pulse, a Probot app, transforms GitHub pull requests. Fetching and explaining code snippets, it enhances code review clarity. Additionally, contributors can specify expected code outputs, streamlining collaboration. Experience an elevated GitHub workflow with Code Pulse&#x27;s intuitive features
 
+## Example Video
+
+[![Watch the Video](https://www.dropbox.com/scl/fi/yn6g0ywsshinondr5hmd1/code-pulse-thumbnail.png?rlkey=h2zrml36nwdowjmj7rqaqu641&dl=0
+)](https://www.dropbox.com/scl/fi/emgzgdfyckjkm2uvya04w/code-pulse-watcher-demo.mp4?rlkey=g941f7ltxtazkmmykyp5exjao&dl=0)
+
+
 ## Setup
 
 ```sh
