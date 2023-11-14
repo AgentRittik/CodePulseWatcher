@@ -39,12 +39,15 @@ docker build -t code-pulse .
 docker run -e APP_ID=<app-id> -e PRIVATE_KEY=<pem-value> code-pulse
 ```
 ## Getting the required Environment variables automatically Using Probot
-```sh
-# after running the npm start you can go to
-http://localhost:3000
-```
 
-
+* Run the app locally by running npm start in your terminal.
+* Next follow the instructions to visit http://localhost:3000 (or your custom Glitch URL).
+* You should see something like this:
+  *<img src="/resources/probot-setup-wizard.png" />
+* Go ahead and click the Register a GitHub App button.
+* Next, you'll get to decide on an app name that isn't already taken. Note: if you see a message "Name is already in use" although no such app exists, it means that a GitHub organization with that name exists and cannot be used as an app name.
+* After registering your GitHub App, you'll be redirected to install the app on any repositories. At the same time, you can check your local .env and notice it will be populated with values GitHub sends us in the course of that redirect.
+* Restart the server in your terminal (press ctrl + c to stop the server)
 
 ## Contributing
 
