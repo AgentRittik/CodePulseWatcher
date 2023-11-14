@@ -47,11 +47,16 @@ module.exports = (app) => {
 
         // Accessing the content of the file
         const codeContent = Buffer.from(fileContent.data.content, 'base64').toString('utf-8');
+
+        // calling the OpenAi api to get the explanation
         const response = await getExplanation(codeContent);
-        const issueComment = context.issue({
-          body: `Explain the following code:\n${response}`,
+        console.log(context.payload.issue.number);
+        await context.octokit.issues.createComment({
+          owner: context.payload.repository.owner.login,
+          repo: context.payload.repository.name,
+          issue_number: context.payload.issue.number,
+          body:response,
         });
-        return context.octokit.issues.createComment(issueComment);
 
         // console.log(`Code in PR#${prNumber}:\n${codeContent}`);
       }   

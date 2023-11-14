@@ -12,7 +12,7 @@ async function getExplanation(codeSnippet) {
         prompt:"meaning of good word",
         max_tokens:5,
       });
-      console.log(completion.choices[0].text);
+    //   console.log(completion.choices[0].text);
       return completion.choices[0].text;
 }
 module.exports = {
