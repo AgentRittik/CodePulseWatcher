@@ -2,6 +2,7 @@
  * This is the main entrypoint to your Probot app
  * @param {import('probot').Probot} app
  */
+const {getExplanation} = require('./Api/openAi.js');
 
 // const commands = require('probot-commands');
 module.exports = (app) => {
@@ -25,7 +26,7 @@ module.exports = (app) => {
       // Check if the comment on the PR contains a specific keyword or phrase ->
       if (commentBody.includes('/Explain')) {
         console.log("yes  it contains the explain command");
-        
+
         // Get the details of the pull request
         const prDetails = await context.octokit.pulls.get({
           owner,
@@ -46,14 +47,15 @@ module.exports = (app) => {
 
         // Accessing the content of the file
         const codeContent = Buffer.from(fileContent.data.content, 'base64').toString('utf-8');
+        const response = await getExplanation(codeContent);
+        const issueComment = context.issue({
+          body: `Explain the following code:\n${response}`,
+        });
+        return context.octokit.issues.createComment(issueComment);
 
-        console.log(`Code in PR#${prNumber}:\n${codeContent}`);
+        // console.log(`Code in PR#${prNumber}:\n${codeContent}`);
       }   
     } 
-    // const issueComment = context.issue({
-    //   body: "Thanks for opening this issue!",
-    // });
-    // return context.octokit.issues.createComment(issueComment);
   });
 
 
