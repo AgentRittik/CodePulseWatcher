@@ -4,7 +4,8 @@
 
 ## Example Video
 
-[![Watch the Video](/resources/code-pulse-thumbnail.png)](https://www.dropbox.com/scl/fi/emgzgdfyckjkm2uvya04w/code-pulse-watcher-demo.mp4?rlkey=g941f7ltxtazkmmykyp5exjao&dl=0)
+[![Watch the Video](https://www.dropbox.com/scl/fi/yn6g0ywsshinondr5hmd1/code-pulse-thumbnail.png?rlkey=h2zrml36nwdowjmj7rqaqu641&dl=0
+)](https://www.dropbox.com/scl/fi/emgzgdfyckjkm2uvya04w/code-pulse-watcher-demo.mp4?rlkey=g941f7ltxtazkmmykyp5exjao&dl=0)
 
 
 ## Setup
