@@ -1,11 +1,23 @@
-# code-pulse
+# Code-Pulse
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that Code Pulse, a Probot app, transforms GitHub pull requests. Fetching and explaining code snippets, it enhances code review clarity. Additionally, contributors can specify expected code outputs, streamlining collaboration. Experience an elevated GitHub workflow with Code Pulse&#x27;s intuitive features
 
-## Example Video
+# Features
+Seamless Integration :
+The app seamlessly integrates with all GitHub repositories, ensuring accessibility across your entire codebase.
+Code Execution Trigger:
+Trigger code execution by including the command /execute in a pull request comment or commit message.
+
+# Example Video
 > click on the image to watch the demo video
 [![Watch the Video](/resources/code-pulse-thumbnail.png)](https://www.dropbox.com/scl/fi/emgzgdfyckjkm2uvya04w/code-pulse-watcher-demo.mp4?rlkey=g941f7ltxtazkmmykyp5exjao&dl=0)
 
+##  🚩 Technologies used:
+#### Programming Languages : <img alt="NodeJS" src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge&logo=node-dot-js&logoColor=white"/><img alt="JavaScript" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/> <img alt="openAi" src="https://img.shields.io/badge/OpenAI-412991.svg?style=for-the-badge&logo=OpenAI&logoColor=white"/>
+#### Version Control : <img alt="Git" src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white"/>  
+#### Hosting : <img alt="Heroku" src="https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white"/>
+####  Frameworks/Libraries/Technologies : ProoBot, Github Web Hooks
+###### You can also see the list of dependencies in the package.json file.
 
 ## Setup
 
@@ -26,6 +38,13 @@ docker build -t code-pulse .
 # 2. Start container
 docker run -e APP_ID=<app-id> -e PRIVATE_KEY=<pem-value> code-pulse
 ```
+## Getting the required Environment variables automatically Using Probot
+```sh
+# after running the npm start you can go to
+http://localhost:3000
+```
+
+
 
 ## Contributing
 
