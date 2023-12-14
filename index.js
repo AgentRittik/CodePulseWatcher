@@ -3,6 +3,7 @@
  * @param {import('probot').Probot} app
  */
 const {getExplanation} = require('./Api/openAi.js');
+const { getOutput } = require('./Api/PistonApi.js');
 
 // const commands = require('probot-commands');
 module.exports = (app) => {
@@ -24,7 +25,7 @@ module.exports = (app) => {
       console.log("logging the comment", commentBody);
 
       // Check if the comment on the PR contains a specific keyword or phrase ->
-      if (commentBody.includes('/Explain')) {
+      if (commentBody.includes('/Explain') || commentBody.includes('/Execute')) {
         console.log("yes  it contains the explain command");
 
         // Get the details of the pull request
@@ -47,21 +48,32 @@ module.exports = (app) => {
 
         // Accessing the content of the file
         const codeContent = Buffer.from(fileContent.data.content, 'base64').toString('utf-8');
-
-        // calling the OpenAi api to get the explanation
-        const response = await getExplanation(codeContent);
-        console.log(context.payload.issue.number);
-        await context.octokit.issues.createComment({
-          owner: context.payload.repository.owner.login,
-          repo: context.payload.repository.name,
-          issue_number: context.payload.issue.number,
-          body:response,
-        });
-
-        // console.log(`Code in PR#${prNumber}:\n${codeContent}`);
+        if(commentBody.includes('/Explain')){
+          // calling the OpenAi api to get the explanation
+          const response = await getExplanation(codeContent);
+          console.log(context.payload.issue.number);
+          await context.octokit.issues.createComment({
+            owner: context.payload.repository.owner.login,
+            repo: context.payload.repository.name,
+            issue_number: context.payload.issue.number,
+            body:response,
+          });
+        }
+        else if(commentBody.includes('/Execute')){
+          //calling the piston api for the output of  code
+          const response = await getOutput(codeContent);
+          console.log(response);
+          await context.octokit.issues.createComment({
+            owner: context.payload.repository.owner.login,
+            repo: context.payload.repository.name,
+            issue_number: context.payload.issue.number,
+            body:response,
+          });
+        }
       }   
     } 
   });
+
 
 
   app.on("issues.opened", async (context) => {

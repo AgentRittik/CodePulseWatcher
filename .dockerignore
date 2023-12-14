@@ -1,12 +1,12 @@
-**/node_modules/
-**/.git
-**/README.md
-**/LICENSE
-**/.vscode
-**/npm-debug.log
-**/coverage
-**/.env
-**/.editorconfig
-**/dist
-**/*.pem
-Dockerfile
+const nodeModulesPattern = '**/node_modules/';
+const gitPattern = '**/.git';
+const readmePattern = '**/README.md';
+const licensePattern = '**/LICENSE';
+const vscodePattern = '**/.vscode';
+const npmDebugLogPattern = '**/npm-debug.log';
+const coveragePattern = '**/coverage';
+const envPattern = '**/.env';
+const editorConfigPattern = '**/.editorconfig';
+const distPattern = '**/dist';
+const pemPattern = '**/*.pem';
+const dockerfilePattern = 'Dockerfile';

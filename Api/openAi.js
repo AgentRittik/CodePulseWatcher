@@ -1,19 +1,20 @@
+
 const OpenAI= require('openai');
 
-console.log("apikey",process.env.OPENAI_API_KEY);
-const openai = new OpenAI({
+const openAi = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
 });
 
 async function getExplanation(codeSnippet) {
-    const prompt = `Explain the following code:\n${codeSnippet}`;
-    const completion = await openai.completions.create({
-        model: "davinci-002",
-        prompt:"meaning of good word",
-        max_tokens:5,
+  console.log(codeSnippet);
+  const prompt = `Provide an explanation for the following code in bullet points:\n${codeSnippet}`;
+    const completion = await openAi.completions.create({
+        model: "text-davinci-003",
+        prompt:prompt,
+        max_tokens:200,
       });
-    //   console.log(completion.choices[0].text);
-      return completion.choices[0].text;
+      console.log("response", completion);
+    return completion.choices[0].text;
 }
 module.exports = {
     getExplanation
